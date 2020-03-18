@@ -36,6 +36,8 @@ import React, {Component} from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import './App.css';
 
+// require('dotenv').config()
+// console.log('api',process.env.REACT_APP_API_KEY);
 
 class App extends Component {
   constructor(props){
@@ -48,7 +50,8 @@ class App extends Component {
   //get API, this.setState(weather.)
 
   currentWeather = async(lat, lon) => {
-    const api_key = '85ceedc7141ecd4a1ad9ed8d0913a567'
+    const api_key = '85ceedc7141ecd4a1ad9ed8d0913a567';
+
     let url = `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${api_key}`
     let response = await fetch(url);
     let data = await response.json();
